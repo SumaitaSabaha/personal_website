@@ -2,18 +2,25 @@ import React from 'react';
 import './styles/sumi.css';
 import './styles/main_styles.css';
 import MyButton from './components/MyButton.js';
-import { FiMail, FiInstagram, FiFacebook, FiGithub} from 'react-icons/fi';
-
+import { FiMail, FiInstagram, FiHome, FiGithub} from 'react-icons/fi';
+import {IoMdSchool} from 'react-icons/io';
+import {AiOutlineFilePdf} from 'react-icons/ai';
+import Typical from 'react-typical';
+import ParallaxJSXWrapper from './components/ParallaxJsWrapper';
+import emailjs from 'emailjs-com';
 
 function App() {
+  const Plane3 = ParallaxJSXWrapper(<img src= "./images/plane3.png" alt="" className= "plane3"/>, 0.07);
   return (
     <div className= "main_container">
         <div className= "section1">
             <img src= "./images/sky.png" alt="" className= "sky"></img>
             <img src= "./images/clouds.png" alt="" className= "clouds"></img>
-            <img src= "./images/front.png" alt="" className= "front"></img>
-            <img src= "./images/buildings.png" alt="" className= "buildings"></img>
+            <img src= "./images/front.png" alt="" className= "front"></img> 
+            <img src= "./images/buildings.png" alt="" className= "buildings"></img>  
             <img src= "./images/building.png" alt="" className= "building"></img>
+            {/* <img src= "./images/plane.png" alt="" className= "plane"></img> */}
+            <Plane3/>
             
         </div>
 
@@ -23,11 +30,26 @@ function App() {
           </svg>
           <div className= "section2_container">
               <div className= "left_side">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis voluptatum, nostrum veniam soluta optio a reiciendis labore consequatur nesciunt ipsam </p>
+                  <h1>
+                      Hi, I'm Sumaita Sabaha!
+                  </h1>
+                  <div>
+                    <p>
+                      <Typical
+                      loop={Infinity}
+                      wrapper="b"
+                      steps={[
+                        'I am a student studying at the University of Texas at Arlington',
+                        'I am passionate about learning new things',
+                        1000  
+                      ]}
+                      />
+                    </p>
+                  </div>
+                  
               </div>
-
               <div className= "right_side">
-                  <img src= "https://picsum.photos/1200/1200" alt="" className="image"/>
+                  <img src= "./images/me.png" alt="" className="image"/>
               </div>
           </div>
 
@@ -38,30 +60,28 @@ function App() {
         </div>
 
         <div className= "section3">
-            contact me!
-            <input type = "text" name= "email" id = "email" className= "input_email"/>
-            <MyButton />
+            <MyButton name ="Contact me!"/>
 
             <div className= "contacts">
-              <div className= "contact_section">
+              <div className= "info">
                 <ul>
-                    <li><FiMail/> Email</li>
+                  <li><a target="_blank" href="https://www.uta.edu/"><IoMdSchool style={{color:'white'}}/> UT, Arlington</a></li>
+                  <li><a><FiHome style={{color:'white'}}/> Dhaka, Bangladesh</a></li>
+                  <li><a><AiOutlineFilePdf style={{color:'white'}}/> Resume</a></li>
                 </ul>
 
               </div>
 
               <div className= "contact_section">
               <ul>
-                  <li><FiInstagram style={{color:'white'}}/> Instagram</li>
-                  <li><FiFacebook/> Facebook</li>
-                  <li><FiGithub/> Github</li>
+                  <li><a target="_blank" href="https://www.instagram.com/sumaita.s/"><FiInstagram style={{color:'white'}}/> Instagram </a></li>
+                  <li><a target="_blank" href= "mailto:sumaitasabaha9@gmail.com"><FiMail style={{color:'white'}}/> Email</a></li>
+                  <li><a target="_blank" href= "https://github.com/SumaitaSabaha"><FiGithub style={{color:'white'}}/> Github</a></li>
               </ul>
               </div>
-
             </div>
         </div>
     </div>
-  );
-}
-
+    );
+  }
 export default App;
